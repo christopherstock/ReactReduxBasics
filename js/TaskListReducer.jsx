@@ -86,6 +86,48 @@
 
             return newState;
         }
+
+        /***************************************************************************************************************
+        *   Moves the task with the specified index up.
+        *
+        *   @param {Object} state  The existing state object.
+        *   @param {Object} action The action to perform on the state object.
+        *
+        *   @return {Object} The new state object.
+        ***************************************************************************************************************/
+        static moveTaskUpReducer( state, action )
+        {
+            let newState = state.slice();
+
+            let taskToMoveUp   = newState[ action.taskIndex     ];
+            let taskToMoveDown = newState[ action.taskIndex - 1 ];
+
+            newState[ action.taskIndex - 1 ] = taskToMoveUp;
+            newState[ action.taskIndex     ] = taskToMoveDown;
+
+            return newState;
+        }
+
+        /***************************************************************************************************************
+        *   Moves the task with the specified index down.
+        *
+        *   @param {Object} state  The existing state object.
+        *   @param {Object} action The action to perform on the state object.
+        *
+        *   @return {Object} The new state object.
+        ***************************************************************************************************************/
+        static moveTaskDownReducer( state, action )
+        {
+            let newState = state.slice();
+
+            let taskToMoveUp   = newState[ action.taskIndex + 1 ];
+            let taskToMoveDown = newState[ action.taskIndex     ];
+
+            newState[ action.taskIndex     ] = taskToMoveUp;
+            newState[ action.taskIndex + 1 ] = taskToMoveDown;
+
+            return newState;
+        }
     }
 
     const createTaskAction   = ( taskName  ) => ( { type: ACTION_CREATE_TASK,    taskName  } );

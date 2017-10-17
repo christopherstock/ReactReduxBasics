@@ -99,6 +99,8 @@
         {},
         props,
         {
+            // TODO unlucky 'state' ?
+
             taskList: state
         }
     );
