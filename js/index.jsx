@@ -12,12 +12,12 @@
     // render the App component into the main container
     ReactDOM.render(
 
-        <window.ReactRedux.Provider store={ window.Redux.createStore( taskListReducer ) }>
+        <ReactRedux.Provider store={ Redux.createStore( ReduxTaskList.taskListReducer ) }>
 
             <App
                 title={ APPLICATION_TITLE }
             />
 
-        </window.ReactRedux.Provider>,
+        </ReactRedux.Provider>,
         mainContainer
     );
