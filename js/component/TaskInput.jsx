@@ -123,7 +123,7 @@
         {},
         props,
         {
-            onTaskCreate: ( text ) => dispatch( createAction( text ) ),
+            onTaskCreate: ( text ) => dispatch( createTaskAction( text ) ),
         }
     );
 

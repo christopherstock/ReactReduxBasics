@@ -1,5 +1,8 @@
 
-    const ACTION_CREATE_TASK = 0;
+    const ACTION_CREATE_TASK    = 0;
+    const ACTION_DELETE_TASK    = 1;
+    const ACTION_MOVE_TASK_UP   = 2;
+    const ACTION_MOVE_TASK_DOWN = 3;
 
     /*******************************************************************************************************************
     *   Contains the Reducer method for the react-redux system.
@@ -27,14 +30,22 @@
                 {
                     return TaskListReducer.createTaskReducer( state, action );
                 }
-/*
-                case ACTION_TYPES.DELETE_TASK:
-                    return deleteTaskReducer(state, action);
-                case ACTION_TYPES.MOVE_TASK_UP:
-                    return moveTaskUpReducer(state, action);
-                case ACTION_TYPES.MOVE_TASK_DOWN:
-                    return moveTaskDownReducer(state, action);
-*/
+
+                case ACTION_DELETE_TASK:
+                {
+                    return TaskListReducer.deleteTaskReducer( state, action );
+                }
+
+                case ACTION_MOVE_TASK_UP:
+                {
+                    return TaskListReducer.moveTaskUpReducer( state, action );
+                }
+
+                case ACTION_MOVE_TASK_DOWN:
+                {
+                    return TaskListReducer.moveTaskDownReducer( state, action );
+                }
+
                 default:
                 {
                     return state;
@@ -56,11 +67,28 @@
 
             newState.push( action.taskName );
 
-            console.log( "createTaskReducer .. new state is:" );
-            console.log( newState );
+            return newState;
+        }
+
+        /***************************************************************************************************************
+        *   Deletes the task with the specified index.
+        *
+        *   @param {Object} state  The existing state object.
+        *   @param {Object} action The action to perform on the state object.
+        *
+        *   @return {Object} The new state object.
+        ***************************************************************************************************************/
+        static deleteTaskReducer( state, action )
+        {
+            let newState = state.slice();
+
+            newState.splice( action.taskIndex, 1 );
 
             return newState;
         }
     }
 
-    const createAction = ( taskName ) => ( { type: ACTION_CREATE_TASK, taskName } );
+    const createTaskAction   = ( taskName  ) => ( { type: ACTION_CREATE_TASK,    taskName  } );
+    const deleteTaskAction   = ( taskIndex ) => ( { type: ACTION_DELETE_TASK,    taskIndex } );
+    const moveTaskUpAction   = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_UP,   taskIndex } );
+    const moveTaskDownAction = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_DOWN, taskIndex } );
