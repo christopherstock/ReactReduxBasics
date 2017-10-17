@@ -1,11 +1,13 @@
 
+    const ACTION_CREATE_TASK = 0;
+
     /*******************************************************************************************************************
     *   Contains the Reducer method for the react-redux system.
     *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class ReduxTaskList
+    class TaskListReducer
     {
         /***************************************************************************************************************
         *   Specifies the global reducer method for the entire TaskList application.
@@ -19,10 +21,13 @@
         {
             console.log( "taskListReducer", action, "on state", state );
 
-            switch (action.type) {
+            switch (action.type)
+            {
+                case ACTION_CREATE_TASK:
+                {
+                    return TaskListReducer.createTaskReducer( state, action );
+                }
 /*
-                case ACTION_TYPES.CREATE_TASK:
-                    return createTaskReducer(state, action);
                 case ACTION_TYPES.DELETE_TASK:
                     return deleteTaskReducer(state, action);
                 case ACTION_TYPES.MOVE_TASK_UP:
@@ -35,5 +40,22 @@
                     return state;
                 }
             }
+        }
+
+        /***************************************************************************************************************
+        *   Creates a new task.
+        *
+        *   @param {Object} state  The existing state object.
+        *   @param {Object} action The action to perform on the state object.
+        *
+        *   @return {Object} The new state object.
+        ***************************************************************************************************************/
+        static createTaskReducer( state, action )
+        {
+            let newState = state.slice();
+
+            newState.push( action.taskName );
+
+            return state
         }
     }
