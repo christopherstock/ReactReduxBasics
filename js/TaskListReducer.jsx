@@ -56,6 +56,11 @@
 
             newState.push( action.taskName );
 
-            return state
+            console.log( "createTaskReducer .. new state is:" );
+            console.log( newState );
+
+            return newState;
         }
     }
+
+    const createAction = ( taskName ) => ( { type: ACTION_CREATE_TASK, taskName } );

@@ -6,7 +6,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class TaskInput extends React.Component
+    class TaskInputUnconnected extends React.Component
     {
         /***************************************************************************************************************
         *   Initializes this component by setting the initial state.
@@ -118,3 +118,13 @@
             }
         };
     }
+
+    const mapDispatchToPropsTaskInput = (dispatch, props) => Object.assign(
+        {},
+        props,
+        {
+            onTaskCreate: ( text ) => dispatch( createAction( text ) ),
+        }
+    );
+
+    const TaskInput = ReactRedux.connect( null, mapDispatchToPropsTaskInput )( TaskInputUnconnected );

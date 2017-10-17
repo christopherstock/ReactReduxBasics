@@ -6,8 +6,23 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class TaskList extends React.Component
+    class TaskListUnconnected extends React.Component
     {
+
+
+
+        // TODO should be temporary!
+        constructor( props )
+        {
+            super( props );
+
+            this.props.taskList = [];
+        }
+
+
+
+
+
         /***************************************************************************************************************
         *   Being invoked every time this component renders.
         *
@@ -78,3 +93,24 @@
             return items;
         }
     }
+
+    // {...props, list: state} schafft der JSX Transformer hier nicht
+    const mapStateToPropsTaskList = (state, props) => Object.assign(
+        {},
+        props,
+        {
+            taskList: state
+        }
+    );
+
+    const mapDispatchToPropsTaskList = (dispatch, props) => Object.assign(
+        {},
+        props,
+        {
+            onTaskDelete:   ( index ) => dispatch( deleteTaskAction(   index ) ),
+            onTaskMoveUp:   ( index ) => dispatch( moveTaskUpAction(   index ) ),
+            onTaskMoveDown: ( index ) => dispatch( moveTaskDownAction( index ) ),
+        }
+    );
+
+    const TaskList = ReactRedux.connect( mapStateToPropsTaskList, mapDispatchToPropsTaskList )( TaskListUnconnected );
