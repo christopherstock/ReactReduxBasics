@@ -131,7 +131,7 @@
         {},
         props,
         {
-            onTaskCreate: ( text ) => dispatch( createTaskAction( text ) ),
+            onTaskCreate: ( text ) => dispatch( TaskListRedux.createTaskAction( text ) ),
         }
     );
 

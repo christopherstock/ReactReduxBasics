@@ -128,11 +128,25 @@
 
             return newState;
         }
+
+        /***************************************************************************************************************
+        *   Specifies the action 'create task'.
+        *
+        *   @param {string} taskName The name of the task to create.
+        *
+        *   @return {Object} The action object for creating new tasks.
+        ***************************************************************************************************************/
+        static createTaskAction( taskName  )
+        {
+            return {
+                type: ACTION_CREATE_TASK,
+                taskName
+            }
+        }
     }
 
     // TODO to static methods?
 
-    const createTaskAction   = ( taskName  ) => ( { type: ACTION_CREATE_TASK,    taskName  } );
     const deleteTaskAction   = ( taskIndex ) => ( { type: ACTION_DELETE_TASK,    taskIndex } );
     const moveTaskUpAction   = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_UP,   taskIndex } );
     const moveTaskDownAction = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_DOWN, taskIndex } );
