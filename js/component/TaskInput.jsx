@@ -66,6 +66,8 @@
         {
             console.log( "TaskInput.onInputChange being invoked" );
 
+            // TODO to redux!
+
             this.setState(
                 {
                     inputError: false,
@@ -95,6 +97,8 @@
             {
                 console.log( "Empty text input detected." );
 
+                // TODO to redux!
+
                 // set error state
                 this.setState(
                     {
@@ -105,6 +109,8 @@
             }
             else
             {
+                // TODO to redux!
+
                 // clear error state
                 this.setState(
                     {
@@ -119,7 +125,9 @@
         };
     }
 
-    const mapDispatchToPropsTaskInput = (dispatch, props) => Object.assign(
+    // TODO refactor these?!
+
+    const mapDispatchToPropsTaskInput = ( dispatch, props ) => Object.assign(
         {},
         props,
         {

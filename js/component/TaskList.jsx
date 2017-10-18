@@ -8,21 +8,6 @@
     *******************************************************************************************************************/
     class TaskListUnconnected extends React.Component
     {
-
-
-
-        // TODO should be temporary!
-        constructor( props )
-        {
-            super( props );
-
-            this.props.taskList = [];
-        }
-
-
-
-
-
         /***************************************************************************************************************
         *   Being invoked every time this component renders.
         *
@@ -93,6 +78,8 @@
             return items;
         }
     }
+
+    // TODO refactor these?!
 
     // {...props, list: state} schafft der JSX Transformer hier nicht
     const mapStateToPropsTaskList = (state, props) => Object.assign(

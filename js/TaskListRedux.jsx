@@ -130,6 +130,8 @@
         }
     }
 
+    // TODO to static methods?
+
     const createTaskAction   = ( taskName  ) => ( { type: ACTION_CREATE_TASK,    taskName  } );
     const deleteTaskAction   = ( taskIndex ) => ( { type: ACTION_DELETE_TASK,    taskIndex } );
     const moveTaskUpAction   = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_UP,   taskIndex } );
