@@ -1,18 +1,18 @@
 
-    // specify the application title
+    // specify app title
     const APPLICATION_TITLE = "React Redux Task List";
 
-    // acclaim debug console and set page title
+    // assign app title to console and page title
     console.log(     APPLICATION_TITLE );
     document.title = APPLICATION_TITLE;
 
-    // reference the main container
+    // reference main container
     let mainContainer = document.getElementById( "mainContainer" );
 
-    // render the App component into the main container
+    // render App component into main container
     ReactDOM.render(
 
-        <ReactRedux.Provider store={ Redux.createStore( TaskListReducer.taskListReducer ) }>
+        <ReactRedux.Provider store={ Redux.createStore( TaskListRedux.taskListReducer ) }>
 
             <App
                 title={ APPLICATION_TITLE }

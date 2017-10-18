@@ -10,7 +10,7 @@
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
-    class TaskListReducer
+    class TaskListRedux
     {
         /***************************************************************************************************************
         *   Specifies the global reducer method for the entire TaskList application.
@@ -28,22 +28,22 @@
             {
                 case ACTION_CREATE_TASK:
                 {
-                    return TaskListReducer.createTaskReducer( state, action );
+                    return TaskListRedux.createTaskReducer( state, action );
                 }
 
                 case ACTION_DELETE_TASK:
                 {
-                    return TaskListReducer.deleteTaskReducer( state, action );
+                    return TaskListRedux.deleteTaskReducer( state, action );
                 }
 
                 case ACTION_MOVE_TASK_UP:
                 {
-                    return TaskListReducer.moveTaskUpReducer( state, action );
+                    return TaskListRedux.moveTaskUpReducer( state, action );
                 }
 
                 case ACTION_MOVE_TASK_DOWN:
                 {
-                    return TaskListReducer.moveTaskDownReducer( state, action );
+                    return TaskListRedux.moveTaskDownReducer( state, action );
                 }
 
                 default:
@@ -54,12 +54,12 @@
         }
 
         /***************************************************************************************************************
-        *   Creates a new task.
+        *   Reduces the state in order to create a new task.
         *
         *   @param {Object} state  The existing state object.
         *   @param {Object} action The action to perform on the state object.
         *
-        *   @return {Object} The new state object.
+        *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
         static createTaskReducer( state, action )
         {
@@ -71,12 +71,12 @@
         }
 
         /***************************************************************************************************************
-        *   Deletes the task with the specified index.
+        *   Reduces the state in order to delete a new task.
         *
         *   @param {Object} state  The existing state object.
         *   @param {Object} action The action to perform on the state object.
         *
-        *   @return {Object} The new state object.
+        *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
         static deleteTaskReducer( state, action )
         {
@@ -88,12 +88,12 @@
         }
 
         /***************************************************************************************************************
-        *   Moves the task with the specified index up.
+        *   Reduces the state in order to move a task up.
         *
         *   @param {Object} state  The existing state object.
         *   @param {Object} action The action to perform on the state object.
         *
-        *   @return {Object} The new state object.
+        *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
         static moveTaskUpReducer( state, action )
         {
@@ -109,12 +109,12 @@
         }
 
         /***************************************************************************************************************
-        *   Moves the task with the specified index down.
+        *   Reduces the state in order to move a task down.
         *
         *   @param {Object} state  The existing state object.
         *   @param {Object} action The action to perform on the state object.
         *
-        *   @return {Object} The new state object.
+        *   @return {Object} The new and reduced state object.
         ***************************************************************************************************************/
         static moveTaskDownReducer( state, action )
         {

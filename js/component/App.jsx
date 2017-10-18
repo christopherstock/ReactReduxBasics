@@ -23,13 +23,10 @@
                 <h1 id="appTitle">{ this.props.title }</h1>
 
                 { /* task input form */ }
-                <TaskInput
-                    onTaskCreate={ ( newTask ) => this.createTask( newTask ) }
-                />
+                <TaskInput />
 
                 { /* task list */ }
-                <TaskList
-                />
+                <TaskList />
 
             </div>;
         }
