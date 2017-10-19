@@ -2,6 +2,8 @@
     /*******************************************************************************************************************
     *   The entire application component.
     *
+    *   TODO ASAP TaskInput state fields to global state.
+    *   TODO HIGH Check if TaskList changes when TaskInput state changes by Redux!!
     *   TODO WEAK try: Redux Forms
     *   TODO WEAK try: Extend Redux.Componet
     *
