@@ -77,11 +77,13 @@
         ***************************************************************************************************************/
         static createTaskReducer( state, action )
         {
-            let newState = state.slice();
+            let newTasks = ( state.taskList ? state.taskList.slice() : [] );
 
-            newState.push( action.taskName );
+            newTasks.push( action.taskName );
 
-            return newState;
+            return {
+                taskList: newTasks,
+            };
         }
 
         /***************************************************************************************************************
@@ -94,11 +96,13 @@
         ***************************************************************************************************************/
         static deleteTaskReducer( state, action )
         {
-            let newState = state.slice();
+            let newTasks = state.taskList.slice();
 
-            newState.splice( action.taskIndex, 1 );
+            newTasks.splice( action.taskIndex, 1 );
 
-            return newState;
+            return {
+                taskList: newTasks,
+            };
         }
 
         /***************************************************************************************************************
@@ -111,15 +115,17 @@
         ***************************************************************************************************************/
         static moveTaskUpReducer( state, action )
         {
-            let newState = state.slice();
+            let newTasks = state.taskList.slice();
 
-            let taskToMoveUp   = newState[ action.taskIndex     ];
-            let taskToMoveDown = newState[ action.taskIndex - 1 ];
+            let taskToMoveUp   = newTasks[ action.taskIndex     ];
+            let taskToMoveDown = newTasks[ action.taskIndex - 1 ];
 
-            newState[ action.taskIndex - 1 ] = taskToMoveUp;
-            newState[ action.taskIndex     ] = taskToMoveDown;
+            newTasks[ action.taskIndex - 1 ] = taskToMoveUp;
+            newTasks[ action.taskIndex     ] = taskToMoveDown;
 
-            return newState;
+            return {
+                taskList: newTasks,
+            };
         }
 
         /***************************************************************************************************************
@@ -132,15 +138,17 @@
         ***************************************************************************************************************/
         static moveTaskDownReducer( state, action )
         {
-            let newState = state.slice();
+            let newTasks = state.taskList.slice();
 
-            let taskToMoveUp   = newState[ action.taskIndex + 1 ];
-            let taskToMoveDown = newState[ action.taskIndex     ];
+            let taskToMoveUp   = newTasks[ action.taskIndex + 1 ];
+            let taskToMoveDown = newTasks[ action.taskIndex     ];
 
-            newState[ action.taskIndex     ] = taskToMoveUp;
-            newState[ action.taskIndex + 1 ] = taskToMoveDown;
+            newTasks[ action.taskIndex     ] = taskToMoveUp;
+            newTasks[ action.taskIndex + 1 ] = taskToMoveDown;
 
-            return newState;
+            return {
+                taskList: newTasks,
+            };
         }
 
         /***************************************************************************************************************
@@ -212,9 +220,7 @@
         {
             const mapStateToProps = ( state ) => {
                 return {
-
-                    // TODO unlucky 'state' ?
-                    taskList: state
+                    taskList: state.taskList
                 }
             };
 
