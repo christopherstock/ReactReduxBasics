@@ -17,7 +17,8 @@
         {
             console.log( "App.render() being invoked" );
 
-            const TaskList = TaskListRedux.connectTaskList();
+            const TaskInput = TaskListRedux.connectTaskInput();
+            const TaskList  = TaskListRedux.connectTaskList();
 
             return <div>
 

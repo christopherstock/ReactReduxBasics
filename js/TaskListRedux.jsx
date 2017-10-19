@@ -217,4 +217,20 @@
                 mapDispatchToProps
             )( TaskListUnconnected );
         }
+
+        /***************************************************************************************************************
+        *   Connects the react component 'TaskInput' with redux and returns the connected instance.
+        *
+        *   @return {Object} The connected react component.
+        ***************************************************************************************************************/
+        static connectTaskInput()
+        {
+            const mapDispatchToProps = ( dispatch ) => {
+                return {
+                    onTaskCreate: ( text ) => dispatch( TaskListRedux.createTaskAction( text ) ),
+                }
+            };
+
+            return ReactRedux.connect( null, mapDispatchToProps )( TaskInputUnconnected );
+        }
     }
