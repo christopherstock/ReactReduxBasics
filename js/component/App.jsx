@@ -17,6 +17,8 @@
         {
             console.log( "App.render() being invoked" );
 
+            const TaskList = TaskListRedux.connectTaskList();
+
             return <div>
 
                 { /* title */ }

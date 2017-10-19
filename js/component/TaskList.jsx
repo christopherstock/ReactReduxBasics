@@ -3,6 +3,8 @@
     *   Represents the TaskList component.
     *   This is an example for a stateless component.
     *
+    *   TODO improve namings?
+    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
@@ -78,27 +80,3 @@
             return items;
         }
     }
-
-
-
-
-    // TODO refactor these?!
-
-    // {...props, list: state} schafft der JSX Transformer hier nicht (??)
-    const mapStateToPropsTaskList = ( state ) => {
-        return {
-
-            // TODO unlucky 'state' ?
-            taskList: state
-        }
-    };
-
-    const mapDispatchToPropsTaskList = ( dispatch ) => {
-        return {
-            onTaskDelete:   ( index ) => dispatch( TaskListRedux.deleteTaskAction(   index ) ),
-            onTaskMoveUp:   ( index ) => dispatch( TaskListRedux.moveTaskUpAction(   index ) ),
-            onTaskMoveDown: ( index ) => dispatch( TaskListRedux.moveTaskDownAction( index ) ),
-        }
-    };
-
-    const TaskList = ReactRedux.connect( mapStateToPropsTaskList, mapDispatchToPropsTaskList )( TaskListUnconnected );

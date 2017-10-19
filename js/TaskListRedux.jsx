@@ -188,4 +188,33 @@
                 taskIndex
             }
         }
+
+        /***************************************************************************************************************
+        *   Connects the react component 'TaskList' with redux and returns the connected instance.
+        *
+        *   @return {Object} The connected react component.
+        ***************************************************************************************************************/
+        static connectTaskList()
+        {
+            const mapStateToProps = ( state ) => {
+                return {
+
+                    // TODO unlucky 'state' ?
+                    taskList: state
+                }
+            };
+
+            const mapDispatchToProps = ( dispatch ) => {
+                return {
+                    onTaskDelete:   ( index ) => dispatch( TaskListRedux.deleteTaskAction(   index ) ),
+                    onTaskMoveUp:   ( index ) => dispatch( TaskListRedux.moveTaskUpAction(   index ) ),
+                    onTaskMoveDown: ( index ) => dispatch( TaskListRedux.moveTaskDownAction( index ) ),
+                }
+            };
+
+            return ReactRedux.connect(
+                mapStateToProps,
+                mapDispatchToProps
+            )( TaskListUnconnected );
+        }
     }
