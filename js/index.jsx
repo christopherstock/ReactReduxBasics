@@ -9,10 +9,17 @@
     // reference main container
     let mainContainer = document.getElementById( "mainContainer" );
 
+    // create redux store
+    let store = Redux.createStore( TaskListRedux.taskListReducer );
+
+    store.dispatch( TaskListRedux.createTaskAction( "Müll rausbringen" ) );
+    store.dispatch( TaskListRedux.createTaskAction( "Abwaschen"        ) );
+    store.dispatch( TaskListRedux.createTaskAction( "Wäsche waschen"   ) );
+
     // render App component into main container
     ReactDOM.render(
 
-        <ReactRedux.Provider store={ Redux.createStore( TaskListRedux.taskListReducer ) }>
+        <ReactRedux.Provider store={ store }>
 
             <App
                 title={ APPLICATION_TITLE }
