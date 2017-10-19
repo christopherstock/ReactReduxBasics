@@ -1,7 +1,6 @@
 
     /*******************************************************************************************************************
     *   Represents the TaskList component.
-    *   This is an example for a stateless component.
     *
     *   TODO improve namings?
     *

@@ -22,35 +22,49 @@
         ***************************************************************************************************************/
         static taskListReducer( state = [], action )
         {
-            console.log( "taskListReducer", action, "on state", state );
+            console.log( "taskListReducer reduces action [" + action + "]" );
+            console.log( " State BEFORE is" );
+            console.dir( state );
+
+            let newState = null;
 
             switch (action.type)
             {
                 case ACTION_CREATE_TASK:
                 {
-                    return TaskListRedux.createTaskReducer( state, action );
+                    newState = TaskListRedux.createTaskReducer( state, action );
+                    break;
                 }
 
                 case ACTION_DELETE_TASK:
                 {
-                    return TaskListRedux.deleteTaskReducer( state, action );
+                    newState = TaskListRedux.deleteTaskReducer( state, action );
+                    break;
                 }
 
                 case ACTION_MOVE_TASK_UP:
                 {
-                    return TaskListRedux.moveTaskUpReducer( state, action );
+                    newState = TaskListRedux.moveTaskUpReducer( state, action );
+                    break;
                 }
 
                 case ACTION_MOVE_TASK_DOWN:
                 {
-                    return TaskListRedux.moveTaskDownReducer( state, action );
+                    newState = TaskListRedux.moveTaskDownReducer( state, action );
+                    break;
                 }
 
                 default:
                 {
-                    return state;
+                    newState = state;
+                    break;
                 }
             }
+
+            console.log( " State AFTER is" );
+            console.dir( newState );
+
+            return newState;
         }
 
         /***************************************************************************************************************
