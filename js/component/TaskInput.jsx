@@ -125,3 +125,5 @@
             }
         };
     }
+
+    const TaskInput = TaskListRedux.connectTaskInput();

@@ -28,7 +28,7 @@
 
             let newState = null;
 
-            switch (action.type)
+            switch ( action.type )
             {
                 case ACTION_CREATE_TASK:
                 {
@@ -245,6 +245,9 @@
                 }
             };
 
-            return ReactRedux.connect( null, mapDispatchToProps )( TaskInputUnconnected );
+            return ReactRedux.connect(
+                null,
+                mapDispatchToProps
+            )( TaskInputUnconnected );
         }
     }

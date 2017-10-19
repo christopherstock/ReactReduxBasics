@@ -79,3 +79,5 @@
             return items;
         }
     }
+
+    const TaskList = TaskListRedux.connectTaskList();

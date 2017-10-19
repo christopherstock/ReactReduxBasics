@@ -2,6 +2,10 @@
     /*******************************************************************************************************************
     *   The entire application component.
     *
+    *   TODO Extend Redux.Componet
+    *   TODO Redux Forms
+    *   TODO All actions with keys
+    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
@@ -15,9 +19,6 @@
         render()
         {
             console.log( "App.render() being invoked" );
-
-            const TaskInput = TaskListRedux.connectTaskInput();
-            const TaskList  = TaskListRedux.connectTaskList();
 
             return <div>
 
