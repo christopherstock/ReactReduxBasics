@@ -1,7 +1,6 @@
 
     /*******************************************************************************************************************
     *   The entire application component.
-    *   This is an example for a stateful component.
     *
     *   @author  Christopher Stock
     *   @version 1.0

@@ -1,7 +1,8 @@
 
     /*******************************************************************************************************************
     *   Represents the input component that lets the user create new tasks.
-    *   This is an example for a stateful and controlled component.
+    *
+    *   TODO improve namings?
     *
     *   @author  Christopher Stock
     *   @version 1.0
