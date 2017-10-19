@@ -2,9 +2,8 @@
     /*******************************************************************************************************************
     *   The entire application component.
     *
-    *   TODO Extend Redux.Componet
-    *   TODO Redux Forms
-    *   TODO All actions with keys
+    *   TODO WEAK Redux Forms
+    *   TODO WEAK Extend Redux.Componet
     *
     *   @author  Christopher Stock
     *   @version 1.0

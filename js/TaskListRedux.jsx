@@ -153,8 +153,8 @@
         static createTaskAction( taskName  )
         {
             return {
-                type: ACTION_CREATE_TASK,
-                taskName
+                type:     ACTION_CREATE_TASK,
+                taskName: taskName,
             }
         }
 
@@ -168,8 +168,8 @@
         static deleteTaskAction( taskIndex )
         {
             return {
-                type: ACTION_DELETE_TASK,
-                taskIndex
+                type:      ACTION_DELETE_TASK,
+                taskIndex: taskIndex,
             }
         }
 
@@ -183,8 +183,8 @@
         static moveTaskUpAction( taskIndex )
         {
             return {
-                type: ACTION_MOVE_TASK_UP,
-                taskIndex
+                type:      ACTION_MOVE_TASK_UP,
+                taskIndex: taskIndex,
             }
         }
 
@@ -198,8 +198,8 @@
         static moveTaskDownAction( taskIndex )
         {
             return {
-                type: ACTION_MOVE_TASK_DOWN,
-                taskIndex
+                type:      ACTION_MOVE_TASK_DOWN,
+                taskIndex: taskIndex,
             }
         }
 
