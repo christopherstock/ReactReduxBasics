@@ -159,10 +159,33 @@
             }
         }
 
+        /***************************************************************************************************************
+        *   Specifies the redux action 'move task up'.
+        *
+        *   @param {string} taskIndex The index of the task to move up.
+        *
+        *   @return {Object} The action object for moving a task up.
+        ***************************************************************************************************************/
+        static moveTaskUpAction( taskIndex )
+        {
+            return {
+                type: ACTION_MOVE_TASK_UP,
+                taskIndex
+            }
+        }
 
+        /***************************************************************************************************************
+        *   Specifies the redux action 'move task down'.
+        *
+        *   @param {string} taskIndex The index of the task to move down.
+        *
+        *   @return {Object} The action object for moving a task down.
+        ***************************************************************************************************************/
+        static moveTaskDownAction( taskIndex )
+        {
+            return {
+                type: ACTION_MOVE_TASK_DOWN,
+                taskIndex
+            }
+        }
     }
-
-    // TODO to static methods?
-
-    const moveTaskUpAction   = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_UP,   taskIndex } );
-    const moveTaskDownAction = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_DOWN, taskIndex } );
