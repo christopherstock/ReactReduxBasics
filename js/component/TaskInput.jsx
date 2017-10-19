@@ -125,14 +125,16 @@
         };
     }
 
+
+
+
+
     // TODO refactor these?!
 
-    const mapDispatchToPropsTaskInput = ( dispatch, props ) => Object.assign(
-        {},
-        props,
-        {
+    const mapDispatchToPropsTaskInput = ( dispatch ) => {
+        return {
             onTaskCreate: ( text ) => dispatch( TaskListRedux.createTaskAction( text ) ),
         }
-    );
+    };
 
     const TaskInput = ReactRedux.connect( null, mapDispatchToPropsTaskInput )( TaskInputUnconnected );

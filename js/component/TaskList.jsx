@@ -79,27 +79,26 @@
         }
     }
 
+
+
+
     // TODO refactor these?!
 
-    // {...props, list: state} schafft der JSX Transformer hier nicht
-    const mapStateToPropsTaskList = (state, props) => Object.assign(
-        {},
-        props,
-        {
-            // TODO unlucky 'state' ?
+    // {...props, list: state} schafft der JSX Transformer hier nicht (??)
+    const mapStateToPropsTaskList = ( state ) => {
+        return {
 
+            // TODO unlucky 'state' ?
             taskList: state
         }
-    );
+    };
 
-    const mapDispatchToPropsTaskList = (dispatch, props) => Object.assign(
-        {},
-        props,
-        {
+    const mapDispatchToPropsTaskList = ( dispatch ) => {
+        return {
             onTaskDelete:   ( index ) => dispatch( TaskListRedux.deleteTaskAction(   index ) ),
             onTaskMoveUp:   ( index ) => dispatch( TaskListRedux.moveTaskUpAction(   index ) ),
             onTaskMoveDown: ( index ) => dispatch( TaskListRedux.moveTaskDownAction( index ) ),
         }
-    );
+    };
 
     const TaskList = ReactRedux.connect( mapStateToPropsTaskList, mapDispatchToPropsTaskList )( TaskListUnconnected );
