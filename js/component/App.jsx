@@ -2,8 +2,8 @@
     /*******************************************************************************************************************
     *   The entire application component.
     *
-    *   TODO WEAK Redux Forms
-    *   TODO WEAK Extend Redux.Componet
+    *   TODO WEAK try: Redux Forms
+    *   TODO WEAK try: Extend Redux.Componet
     *
     *   @author  Christopher Stock
     *   @version 1.0
