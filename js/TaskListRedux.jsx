@@ -130,11 +130,11 @@
         }
 
         /***************************************************************************************************************
-        *   Specifies the action 'create task'.
+        *   Specifies the redux action 'create task'.
         *
         *   @param {string} taskName The name of the task to create.
         *
-        *   @return {Object} The action object for creating new tasks.
+        *   @return {Object} The action object for creating a task.
         ***************************************************************************************************************/
         static createTaskAction( taskName  )
         {
@@ -143,10 +143,26 @@
                 taskName
             }
         }
+
+        /***************************************************************************************************************
+        *   Specifies the redux action 'delete task'.
+        *
+        *   @param {string} taskIndex The index of the task to delete.
+        *
+        *   @return {Object} The action object for deleting a task.
+        ***************************************************************************************************************/
+        static deleteTaskAction( taskIndex )
+        {
+            return {
+                type: ACTION_DELETE_TASK,
+                taskIndex
+            }
+        }
+
+
     }
 
     // TODO to static methods?
 
-    const deleteTaskAction   = ( taskIndex ) => ( { type: ACTION_DELETE_TASK,    taskIndex } );
     const moveTaskUpAction   = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_UP,   taskIndex } );
     const moveTaskDownAction = ( taskIndex ) => ( { type: ACTION_MOVE_TASK_DOWN, taskIndex } );

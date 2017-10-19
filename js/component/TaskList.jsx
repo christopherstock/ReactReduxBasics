@@ -96,7 +96,7 @@
         {},
         props,
         {
-            onTaskDelete:   ( index ) => dispatch( deleteTaskAction(   index ) ),
+            onTaskDelete:   ( index ) => dispatch( TaskListRedux.deleteTaskAction(   index ) ),
             onTaskMoveUp:   ( index ) => dispatch( moveTaskUpAction(   index ) ),
             onTaskMoveDown: ( index ) => dispatch( moveTaskDownAction( index ) ),
         }
