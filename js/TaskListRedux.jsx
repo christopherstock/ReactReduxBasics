@@ -119,7 +119,7 @@
             let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
 
-            // TODO use ... syntax
+            // TODO ASK Improve creation of new state object -- use ... syntax?
 
             return {
                 taskList:   newTasks,
