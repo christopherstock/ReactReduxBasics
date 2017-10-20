@@ -8,21 +8,6 @@
     class TaskInputUnconnected extends React.Component
     {
         /***************************************************************************************************************
-        *   Initializes this component by setting the initial state.
-        *
-        *   @param {Object} props The initial properties being passed in the component tag.
-        ***************************************************************************************************************/
-        constructor( props )
-        {
-            super( props );
-
-            this.state = {
-                inputError: false,
-                inputText:  "",
-            }
-        }
-
-        /***************************************************************************************************************
         *   Being invoked every time this component renders.
         *
         *   @return {JSXTransformer} The rendered JSX.
@@ -38,8 +23,8 @@
                     id="newTask"
                     type="text"
                     maxLength="50"
-                    className={ this.state.inputError ? "input error" : "input" }
-                    value={     this.state.inputText }
+                    className={ this.props.inputError ? "input error" : "input" }
+                    value={     this.props.inputText }
                     onChange={  ( event ) => { this.onInputChange( event ); } }
                 />
 
@@ -63,16 +48,14 @@
         ***************************************************************************************************************/
         onInputChange( event )
         {
+            // TODO ASK good practice?
+            // TODO ASK bundle two different actions in reducer method?
+
             console.log( "TaskInput.onInputChange being invoked" );
 
-            // TODO to redux!
-
-            this.setState(
-                {
-                    inputError: false,
-                    inputText:  event.target.value,
-                }
-            );
+            // assign text to input field
+            this.props.onClearInputError();
+            this.props.onSetInputField( event.target.value );
         }
 
         /***************************************************************************************************************
@@ -88,7 +71,7 @@
             event.preventDefault();
 
             // trim entered text
-            let enteredText = this.state.inputText.trim();
+            let enteredText = this.props.inputText.trim();
 
             // check entered text
             console.log( "Trimmed text in the box is [" + enteredText + "]" );
@@ -96,27 +79,15 @@
             {
                 console.log( "Empty text input detected." );
 
-                // TODO to redux!
-
                 // set error state
-                this.setState(
-                    {
-                        inputError: true,
-                        inputText:  "",
-                    }
-                );
+                this.props.onSetInputError();
+                this.props.onClearInputField();
             }
             else
             {
-                // TODO to redux!
-
                 // clear error state
-                this.setState(
-                    {
-                        inputError: false,
-                        inputText:  "",
-                    }
-                );
+                this.props.onClearInputError();
+                this.props.onClearInputField();
 
                 // invoke parent listener
                 this.props.onTaskCreate( enteredText );

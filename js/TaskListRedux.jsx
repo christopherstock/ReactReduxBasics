@@ -324,11 +324,11 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'set input field'.
         *
-        *   @param {string} inputValue The text to set into the input field.
+        *   @param {string} inputText The text to set into the input field.
         *
         *   @return {Object} The action object for setting the input field.
         ***************************************************************************************************************/
-        static setInputFieldAction( inputValue )
+        static setInputFieldAction( inputText )
         {
             return {
                 type:      ACTION_SET_INPUT_FIELD,
@@ -406,14 +406,25 @@
         ***************************************************************************************************************/
         static connectTaskInput()
         {
+            const mapStateToProps = ( state ) => {
+                return {
+                    inputError: state.inputError,
+                    inputText:  state.inputText
+                }
+            };
+
             const mapDispatchToProps = ( dispatch ) => {
                 return {
-                    onTaskCreate: ( text ) => dispatch( TaskListRedux.createTaskAction( text ) ),
+                    onTaskCreate:      ( text ) => dispatch( TaskListRedux.createTaskAction(      text ) ),
+                    onSetInputField:   ( text ) => dispatch( TaskListRedux.setInputFieldAction(   text ) ),
+                    onClearInputField: ()       => dispatch( TaskListRedux.clearInputFieldAction()       ),
+                    onSetInputError:   ()       => dispatch( TaskListRedux.setInputErrorAction()         ),
+                    onClearInputError: ()       => dispatch( TaskListRedux.clearInputErrorAction()       ),
                 }
             };
 
             return ReactRedux.connect(
-                null,
+                mapStateToProps,
                 mapDispatchToProps
             )( TaskInputUnconnected );
         }
