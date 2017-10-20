@@ -13,6 +13,18 @@
     class TaskListRedux
     {
         /***************************************************************************************************************
+        *   Creates and returns the default state.
+        *
+        *   @return {Object} The initially constructed state object.
+        ***************************************************************************************************************/
+        static createDefaultState()
+        {
+            return {
+                taskList: [],
+            };
+        }
+
+        /***************************************************************************************************************
         *   Specifies the global reducer method for the entire TaskList application.
         *
         *   @param {Object} state  The existing state object.
@@ -22,9 +34,7 @@
         ***************************************************************************************************************/
         static taskListReducer( state = [], action )
         {
-            console.log( "taskListReducer reduces action [" + action + "]" );
-            console.log( " State BEFORE is" );
-            console.dir( state );
+            console.log( "taskListReducer reduces action [", action, "] State BEFORE is [", state, "]" );
 
             let newState = null;
 
@@ -61,8 +71,7 @@
                 }
             }
 
-            console.log( " State AFTER is" );
-            console.dir( newState );
+            console.log( " State AFTER is [", newState, "]" );
 
             return newState;
         }
@@ -77,8 +86,7 @@
         ***************************************************************************************************************/
         static createTaskReducer( state, action )
         {
-            let newTasks = ( state.taskList ? state.taskList.slice() : [] );
-
+            let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
 
             return {
@@ -97,7 +105,6 @@
         static deleteTaskReducer( state, action )
         {
             let newTasks = state.taskList.slice();
-
             newTasks.splice( action.taskIndex, 1 );
 
             return {
@@ -115,8 +122,7 @@
         ***************************************************************************************************************/
         static moveTaskUpReducer( state, action )
         {
-            let newTasks = state.taskList.slice();
-
+            let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex     ];
             let taskToMoveDown = newTasks[ action.taskIndex - 1 ];
 
@@ -138,8 +144,7 @@
         ***************************************************************************************************************/
         static moveTaskDownReducer( state, action )
         {
-            let newTasks = state.taskList.slice();
-
+            let newTasks       = state.taskList.slice();
             let taskToMoveUp   = newTasks[ action.taskIndex + 1 ];
             let taskToMoveDown = newTasks[ action.taskIndex     ];
 

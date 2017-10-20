@@ -10,7 +10,10 @@
     let mainContainer = document.getElementById( "mainContainer" );
 
     // create redux store
-    let store = Redux.createStore( TaskListRedux.taskListReducer );
+    let store = Redux.createStore(
+        TaskListRedux.taskListReducer,
+        TaskListRedux.createDefaultState()
+    );
 
     store.dispatch( TaskListRedux.createTaskAction( "Müll rausbringen" ) );
     store.dispatch( TaskListRedux.createTaskAction( "Abwaschen"        ) );
