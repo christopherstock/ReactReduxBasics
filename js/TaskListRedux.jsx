@@ -20,7 +20,9 @@
         static createDefaultState()
         {
             return {
-                taskList: [],
+                taskList:   [],
+                inputError: false,
+                inputText:  "",
             };
         }
 
@@ -89,8 +91,12 @@
             let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
 
+            // TODO use ... syntax
+
             return {
-                taskList: newTasks,
+                taskList:   newTasks,
+                inputError: state.inputError,
+                inputText:  state.inputText,
             };
         }
 
@@ -108,7 +114,9 @@
             newTasks.splice( action.taskIndex, 1 );
 
             return {
-                taskList: newTasks,
+                taskList:   newTasks,
+                inputError: state.inputError,
+                inputText:  state.inputText,
             };
         }
 
@@ -130,7 +138,9 @@
             newTasks[ action.taskIndex     ] = taskToMoveDown;
 
             return {
-                taskList: newTasks,
+                taskList:   newTasks,
+                inputError: state.inputError,
+                inputText:  state.inputText,
             };
         }
 
@@ -152,7 +162,9 @@
             newTasks[ action.taskIndex + 1 ] = taskToMoveDown;
 
             return {
-                taskList: newTasks,
+                taskList:   newTasks,
+                inputError: state.inputError,
+                inputText:  state.inputText,
             };
         }
 
