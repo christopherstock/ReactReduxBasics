@@ -12,7 +12,7 @@
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
-        static connectTaskList( Component )
+        static connectTaskList()
         {
             const mapStateToProps = ( state ) => {
                 return {
@@ -31,8 +31,7 @@
             return ReactRedux.connect(
                 mapStateToProps,
                 mapDispatchToProps
-                // I would not hard-code the component that should be connected. Often, you will want to connect another components with the same properties
-            )( Component );
+            )( TaskListUnconnected );
         }
 
         /***************************************************************************************************************
@@ -40,7 +39,7 @@
         *
         *   @return {Object} The connected react component.
         ***************************************************************************************************************/
-        static connectTaskInput( Component )
+        static connectTaskInput()
         {
             const mapStateToProps = ( state ) => {
                 return {
@@ -52,12 +51,6 @@
             const mapDispatchToProps = ( dispatch ) => {
                 return {
                     onTaskCreate:      ( text ) => dispatch( Action.createTaskAction(      text ) ),
-                    /*
-                     *  input field content and validation state are not necessarily something I would store in the "global"
-                     *  redux state.
-                     *  If there is no reason for them to be displayed in different components, I would keep those in the "local"
-                     *  component state.
-                     **/
                     onSetInputField:   ( text ) => dispatch( Action.setInputFieldAction(   text ) ),
                     onClearInputField: ()       => dispatch( Action.clearInputFieldAction()       ),
                     onSetInputError:   ()       => dispatch( Action.setInputErrorAction()         ),
@@ -68,6 +61,6 @@
             return ReactRedux.connect(
                 mapStateToProps,
                 mapDispatchToProps
-            )( Component );
+            )( TaskInputUnconnected );
         }
     }

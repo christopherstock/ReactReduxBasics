@@ -1,12 +1,12 @@
 
-    const ACTION_CREATE_TASK       = 0;
-    const ACTION_DELETE_TASK       = 1;
-    const ACTION_MOVE_TASK_UP      = 2;
-    const ACTION_MOVE_TASK_DOWN    = 3;
-    const ACTION_SET_INPUT_FIELD   = 4;
-    const ACTION_CLEAR_INPUT_FIELD = 5;
-    const ACTION_SET_INPUT_ERROR   = 6;
-    const ACTION_CLEAR_INPUT_ERROR = 7;
+    const ACTION_CREATE_TASK       = 'ACTION_CREATE_TASK';
+    const ACTION_DELETE_TASK       = 'ACTION_DELETE_TASK';
+    const ACTION_MOVE_TASK_UP      = 'ACTION_MOVE_TASK_UP';
+    const ACTION_MOVE_TASK_DOWN    = 'ACTION_MOVE_TASK_DOWN';
+    const ACTION_SET_INPUT_FIELD   = 'ACTION_SET_INPUT_FIELD';
+    const ACTION_CLEAR_INPUT_FIELD = 'ACTION_CLEAR_INPUT_FIELD';
+    const ACTION_SET_INPUT_ERROR   = 'ACTION_SET_INPUT_ERROR';
+    const ACTION_CLEAR_INPUT_ERROR = 'ACTION_CLEAR_INPUT_ERROR';
 
     /*******************************************************************************************************************
     *   Specifies all redux action creators.

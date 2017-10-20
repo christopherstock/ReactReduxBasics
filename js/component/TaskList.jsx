@@ -78,4 +78,4 @@
         }
     }
 
-    const TaskList = Connector.connectTaskList( TaskListUnconnected );
+    const TaskList = Connector.connectTaskList();

@@ -16,11 +16,6 @@
         *   @return {Object} The new state object.
         ***************************************************************************************************************/
         static taskListReducer( state = Reducer.createDefaultState() , action )
-        // see comment in index.js.
-        // also, defaulting to [] here was definitely wrong - if you add a default value for your state,
-        // it has to be compatible with the properties of your state.
-        // in this case, you provided an empty array where an object with the properties taskList, inputError and inputText
-        // was expected
         {
             console.log( "taskListReducer reduces action [", action, "] State BEFORE is [", state, "]" );
 
@@ -101,33 +96,6 @@
             let newTasks = state.taskList.slice();
             newTasks.push( action.taskName );
 
-            // TODO ASK Improve creation of new state object -- use ... syntax?
-
-            // definitely do this, otherwise you will have to rewrite tons of code later on
-            // when you add an additional property to the store
-
-            /*
-            unfortunately you will require babel/tsc to make this work as the spread syntax is disabled by a flag in chrome <= 60
-
-            it would look tike this
-
-            return {
-                ...state,
-                taskList:   newTasks,
-            };
-
-            you can do the same by
-
-            return Object.assign(
-                {},
-                state,
-                {
-                    taskList:   newTasks,
-                },
-            );
-
-            that should already work in modern browsers event without transpiling
-            */
             return {
                 taskList:   newTasks,
                 inputError: state.inputError,
