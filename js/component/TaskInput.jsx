@@ -50,6 +50,7 @@
         {
             // TODO ASK good practice?
             // TODO ASK bundle two different actions in reducer method?
+            // personally, I would keep actions as atomic as possible, so I would do it the same way
 
             console.log( "TaskInput.onInputChange being invoked" );
 
@@ -95,4 +96,4 @@
         };
     }
 
-    const TaskInput = Connector.connectTaskInput();
+    const TaskInput = Connector.connectTaskInput( TaskInputUnconnected );
