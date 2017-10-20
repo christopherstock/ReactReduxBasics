@@ -95,4 +95,4 @@
         };
     }
 
-    const TaskInput = TaskListRedux.connectTaskInput();
+    const TaskInput = Connector.connectTaskInput();

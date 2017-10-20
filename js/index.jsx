@@ -11,13 +11,13 @@
 
     // create redux store
     let store = Redux.createStore(
-        TaskListRedux.taskListReducer,
-        TaskListRedux.createDefaultState()
+        Reducer.taskListReducer,
+        Reducer.createDefaultState()
     );
 
-    store.dispatch( TaskListRedux.createTaskAction( "Müll rausbringen" ) );
-    store.dispatch( TaskListRedux.createTaskAction( "Abwaschen"        ) );
-    store.dispatch( TaskListRedux.createTaskAction( "Wäsche waschen"   ) );
+    store.dispatch( Action.createTaskAction( "Müll rausbringen" ) );
+    store.dispatch( Action.createTaskAction( "Abwaschen"        ) );
+    store.dispatch( Action.createTaskAction( "Wäsche waschen"   ) );
 
     // render App component into main container
     ReactDOM.render(

@@ -78,4 +78,4 @@
         }
     }
 
-    const TaskList = TaskListRedux.connectTaskList();
+    const TaskList = Connector.connectTaskList();
