@@ -11,8 +11,9 @@
 
     // create redux store
     let store = Redux.createStore(
-        Reducer.taskListReducer,
-        Reducer.createDefaultState()
+        Reducer.taskListReducer
+        // when you start combining multiple reducers for a nested store, you will not always know the full default state.
+        // I would move this to a default parameter of the reducer
     );
 
     store.dispatch( Action.createTaskAction( "Müll rausbringen" ) );
