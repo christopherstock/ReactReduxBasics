@@ -2,12 +2,6 @@
     /*******************************************************************************************************************
     *   The entire application component.
     *
-    *   TODO HIGH Create package 'redux'.
-    *   TODO HIGH Class 'ReduxAction'.
-    *   TODO HIGH Class 'ReduxReducer'.
-    *   TODO HIGH Class 'ReduxConnectors'.
-    *   TODO WEAK try: Extend Redux.Component
-    *
     *   @author  Christopher Stock
     *   @version 1.0
     *******************************************************************************************************************/
