@@ -1,8 +1,12 @@
 
-    const ACTION_CREATE_TASK    = 0;
-    const ACTION_DELETE_TASK    = 1;
-    const ACTION_MOVE_TASK_UP   = 2;
-    const ACTION_MOVE_TASK_DOWN = 3;
+    const ACTION_CREATE_TASK       = 0;
+    const ACTION_DELETE_TASK       = 1;
+    const ACTION_MOVE_TASK_UP      = 2;
+    const ACTION_MOVE_TASK_DOWN    = 3;
+    const ACTION_SET_INPUT_FIELD   = 4;
+    const ACTION_CLEAR_INPUT_FIELD = 5;
+    const ACTION_SET_INPUT_ERROR   = 6;
+    const ACTION_CLEAR_INPUT_ERROR = 7;
 
     /*******************************************************************************************************************
     *   Contains the Reducer method for the react-redux system.
@@ -63,6 +67,30 @@
                 case ACTION_MOVE_TASK_DOWN:
                 {
                     newState = TaskListRedux.moveTaskDownReducer( state, action );
+                    break;
+                }
+
+                case ACTION_SET_INPUT_FIELD:
+                {
+                    newState = TaskListRedux.setInputFieldReducer( state, action );
+                    break;
+                }
+
+                case ACTION_CLEAR_INPUT_FIELD:
+                {
+                    newState = TaskListRedux.clearInputFieldReducer( state );
+                    break;
+                }
+
+                case ACTION_SET_INPUT_ERROR:
+                {
+                    newState = TaskListRedux.setInputErrorReducer( state );
+                    break;
+                }
+
+                case ACTION_CLEAR_INPUT_ERROR:
+                {
+                    newState = TaskListRedux.clearInputErrorReducer( state );
                     break;
                 }
 
@@ -169,6 +197,71 @@
         }
 
         /***************************************************************************************************************
+        *   Reduces the state in order to set a text for the input field.
+        *
+        *   @param {Object} state  The existing state object.
+        *   @param {Object} action The action to perform on the state object.
+        *
+        *   @return {Object} The new and reduced state object.
+        ***************************************************************************************************************/
+        static setInputFieldReducer( state, action )
+        {
+            return {
+                taskList:   state.taskList,
+                inputError: state.inputError,
+                inputText:  action.inputText,
+            };
+        }
+
+        /***************************************************************************************************************
+        *   Reduces the state in order to clear the text in the input field.
+        *
+        *   @param {Object} state The existing state object.
+        *
+        *   @return {Object} The new and reduced state object.
+        ***************************************************************************************************************/
+        static clearInputFieldReducer( state )
+        {
+            return {
+                taskList:   state.taskList,
+                inputError: state.inputError,
+                inputText:  "",
+            };
+        }
+
+        /***************************************************************************************************************
+        *   Reduces the state in order to set the input error for the input field.
+        *
+        *   @param {Object} state The existing state object.
+        *
+        *   @return {Object} The new and reduced state object.
+        ***************************************************************************************************************/
+        static setInputErrorReducer( state )
+        {
+            return {
+                taskList:   state.taskList,
+                inputError: true,
+                inputText:  state.inputText,
+            };
+        }
+
+        /***************************************************************************************************************
+        *   Reduces the state in order to clear the input error for the input field.
+        *
+        *   @param {Object} state The existing state object.
+        *
+        *   @return {Object} The new and reduced state object.
+        ***************************************************************************************************************/
+        static clearInputErrorReducer( state )
+        {
+            return {
+                taskList:   state.taskList,
+                inputError: false,
+                inputText:  state.inputText,
+            };
+        }
+
+        /***************************************************************************************************************
         *   Specifies the redux action 'create task'.
         *
         *   @param {string} taskName The name of the task to create.
@@ -186,7 +279,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'delete task'.
         *
-        *   @param {string} taskIndex The index of the task to delete.
+        *   @param {number} taskIndex The index of the task to delete.
         *
         *   @return {Object} The action object for deleting a task.
         ***************************************************************************************************************/
@@ -201,7 +294,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'move task up'.
         *
-        *   @param {string} taskIndex The index of the task to move up.
+        *   @param {number} taskIndex The index of the task to move up.
         *
         *   @return {Object} The action object for moving a task up.
         ***************************************************************************************************************/
@@ -216,7 +309,7 @@
         /***************************************************************************************************************
         *   Specifies the redux action 'move task down'.
         *
-        *   @param {string} taskIndex The index of the task to move down.
+        *   @param {number} taskIndex The index of the task to move down.
         *
         *   @return {Object} The action object for moving a task down.
         ***************************************************************************************************************/
@@ -225,6 +318,57 @@
             return {
                 type:      ACTION_MOVE_TASK_DOWN,
                 taskIndex: taskIndex,
+            }
+        }
+
+        /***************************************************************************************************************
+        *   Specifies the redux action 'set input field'.
+        *
+        *   @param {string} inputValue The text to set into the input field.
+        *
+        *   @return {Object} The action object for setting the input field.
+        ***************************************************************************************************************/
+        static setInputFieldAction( inputValue )
+        {
+            return {
+                type:      ACTION_SET_INPUT_FIELD,
+                inputText: inputText,
+            }
+        }
+
+        /***************************************************************************************************************
+        *   Specifies the redux action 'clear input field'.
+        *
+        *   @return {Object} The action object for clearing the input field.
+        ***************************************************************************************************************/
+        static clearInputFieldAction()
+        {
+            return {
+                type: ACTION_CLEAR_INPUT_FIELD,
+            }
+        }
+
+        /***************************************************************************************************************
+        *   Specifies the redux action 'set input error'.
+        *
+        *   @return {Object} The action object for setting the input error.
+        ***************************************************************************************************************/
+        static setInputErrorAction()
+        {
+            return {
+                type: ACTION_SET_INPUT_ERROR,
+            }
+        }
+
+        /***************************************************************************************************************
+        *   Specifies the redux action 'clear input error'.
+        *
+        *   @return {Object} The action object for clearing the input error.
+        ***************************************************************************************************************/
+        static clearInputErrorAction()
+        {
+            return {
+                type: ACTION_CLEAR_INPUT_ERROR,
             }
         }
 

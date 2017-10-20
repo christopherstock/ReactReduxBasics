@@ -4,6 +4,10 @@
     *
     *   TODO ASAP TaskInput state fields to global state.
     *   TODO HIGH Check if TaskList changes when TaskInput state changes by Redux!!
+    *   TODO HIGH Create package 'redux'.
+    *   TODO HIGH Class 'ReduxAction'.
+    *   TODO HIGH Class 'ReduxReducer'.
+    *   TODO HIGH Class 'ReduxConnectors'.
     *   TODO WEAK try: Redux Forms
     *   TODO WEAK try: Extend Redux.Componet
     *
