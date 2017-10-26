@@ -20,12 +20,11 @@
                 }
             };
 
-            const mapDispatchToProps = ( dispatch ) => {
-                return {
-                    onTaskDelete:   ( index ) => dispatch( Action.deleteTaskAction(   index ) ),
-                    onTaskMoveUp:   ( index ) => dispatch( Action.moveTaskUpAction(   index ) ),
-                    onTaskMoveDown: ( index ) => dispatch( Action.moveTaskDownAction( index ) ),
-                }
+            const mapDispatchToProps =
+            {
+                onTaskDelete:   Action.deleteTaskAction,
+                onTaskMoveUp:   Action.moveTaskUpAction,
+                onTaskMoveDown: Action.moveTaskDownAction,
             };
 
             return ReactRedux.connect(
@@ -48,14 +47,12 @@
                 }
             };
 
-            const mapDispatchToProps = ( dispatch ) => {
-                return {
-                    onTaskCreate:      ( text ) => dispatch( Action.createTaskAction(      text ) ),
-                    onSetInputField:   ( text ) => dispatch( Action.setInputFieldAction(   text ) ),
-                    onClearInputField: ()       => dispatch( Action.clearInputFieldAction()       ),
-                    onSetInputError:   ()       => dispatch( Action.setInputErrorAction()         ),
-                    onClearInputError: ()       => dispatch( Action.clearInputErrorAction()       ),
-                }
+            const mapDispatchToProps = {
+                onTaskCreate:      Action.createTaskAction,
+                onSetInputField:   Action.setInputFieldAction,
+                onClearInputField: Action.clearInputFieldAction,
+                onSetInputError:   Action.setInputErrorAction,
+                onClearInputError: Action.clearInputErrorAction,
             };
 
             return ReactRedux.connect(
